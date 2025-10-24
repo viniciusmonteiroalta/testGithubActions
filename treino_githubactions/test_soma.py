@@ -15,3 +15,8 @@ def test_multiplicacao():
     result = sub.multiplicacao(2, 2)
 
     assert 4 == result
+
+def test_divisao():
+    result = sub.divisao(2, 2)
+
+    assert 1 == result
