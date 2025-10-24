@@ -1,8 +1,31 @@
 name: teste github actions
-on: workflow_dispatch
+on: 
+  push:
+    branches:
+      - main
 jobs:
   teste-github-actions:
     runs-on: ubuntu-latest
+    
     steps:
-    - name: Teste print
-      run: echo "Funciona"
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Criar e ativar venv
+        run: |
+          python3 -m venv venv
+          source venv/bin/activate
+          pip install -U pip pytest
+
+      - name: Rodar testes
+        run: |
+          source venv/bin/activate
+          pytest
+
+      - name: Teste finalizado
+        run: echo "Teste Finalizado"
