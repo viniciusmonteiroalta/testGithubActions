@@ -21,11 +21,11 @@ jobs:
           python3 -m venv venv
           source venv/bin/activate
           pip install -U pip pytest
+          source venv/bin/activate
 
       - name: Rodar testes
         run: |
-          source venv/bin/activate
-          pytest
+          pytest treino_githubactions
 
       - name: Teste finalizado
         run: echo "Teste Finalizado"
