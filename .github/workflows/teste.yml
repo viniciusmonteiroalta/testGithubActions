@@ -1,8 +1,10 @@
 name: teste github actions
+
 on: 
   push:
     branches:
       - main
+
 jobs:
   teste-github-actions:
     runs-on: ubuntu-latest
@@ -15,6 +17,14 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+
+      - name: Cache do pip
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/*.py') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
 
       - name: Criar e ativar venv
         run: |
