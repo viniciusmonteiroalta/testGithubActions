@@ -14,18 +14,17 @@ jobs:
       - name: Configurar Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
+          python-version: '3.12'
 
       - name: Criar e ativar venv
         run: |
           python3 -m venv venv
           source venv/bin/activate
           pip install -U pip pytest
-          source venv/bin/activate
 
-      - name: Rodar testes
+      - name: Rodar testes (usando venv)
         run: |
-          pytest treino_githubactions
+          venv/bin/python -m pytest treino_githubactions
 
       - name: Teste finalizado
         run: echo "Teste Finalizado"
