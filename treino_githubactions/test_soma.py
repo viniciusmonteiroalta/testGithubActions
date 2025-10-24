@@ -10,3 +10,8 @@ def test_subtracao():
     result = sub.subtracao(2, 2)
 
     assert 0 == result
+
+def test_multiplicacao():
+    result = sub.multiplicacao(2, 2)
+
+    assert 4 == result
