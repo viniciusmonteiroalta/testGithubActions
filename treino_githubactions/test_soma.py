@@ -12,9 +12,9 @@ def test_subtracao():
     assert 0 == result
 
 def test_multiplicacao():
-    result = sub.multiplicacao(2, 2)
+    result = sub.multiplicacao(3, 2)
 
-    assert 4 == result
+    assert 6 == result
 
 def test_divisao():
     result = sub.divisao(2, 2)
